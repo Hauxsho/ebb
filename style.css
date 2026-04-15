@@ -1,0 +1,139 @@
+/* Ebb — style.css */
+
+#ebb-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 10px 2px 6px;
+  border-radius: 999px;
+  font-family: "Anthropic Sans", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55) !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+  user-select: none;
+  cursor: default;
+  transition: color 0.3s ease;
+  letter-spacing: 0.01em;
+}
+
+#ebb-bar .ebb-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  opacity: 0.45;
+}
+
+#ebb-bar .ebb-segments {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+#ebb-bar .ebb-segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#ebb-bar .ebb-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+}
+
+#ebb-bar .ebb-track {
+  width: 48px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+#ebb-bar .ebb-fill {
+  display: block;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#ebb-bar .ebb-pct {
+  font-size: 11px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+}
+
+#ebb-bar .ebb-dot {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.2;
+  flex-shrink: 0;
+}
+
+#ebb-bar .ebb-reset {
+  font-size: 11px;
+  opacity: 0.5;
+}
+
+/* warn 70%+ */
+#ebb-bar.ebb-warn {
+  color: #b07c2a;
+}
+
+#ebb-bar.ebb-warn .ebb-track-5h {
+  background: rgba(212, 148, 30, 0.2);
+}
+
+#ebb-bar.ebb-warn .ebb-fill-5h {
+  background: #d4941e;
+}
+
+/* danger 90%+ */
+#ebb-bar.ebb-danger {
+  color: #b03a2e;
+}
+
+#ebb-bar.ebb-danger .ebb-track-5h {
+  background: rgba(226, 75, 74, 0.2);
+}
+
+#ebb-bar.ebb-danger .ebb-fill-5h {
+  background: #e24b4a;
+  animation: ebb-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes ebb-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* loading shimmer */
+#ebb-bar.ebb-loading .ebb-fill {
+  width: 30% !important;
+  animation: ebb-shimmer 1.5s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+@keyframes ebb-shimmer {
+  0% {
+    transform: translateX(-200%);
+  }
+
+  100% {
+    transform: translateX(500%);
+  }
+}
