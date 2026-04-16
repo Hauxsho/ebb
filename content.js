@@ -42,7 +42,7 @@
         <span class="ebb-pct" id="ebb-pct-7d">—</span>
       </span>
       <span class="ebb-dot"></span>
-      <span class="ebb-reset" id="ebb-reset"></span>
+      <span class="ebb-reset" id="ebb-reset" title="Refresh usage" style="cursor:pointer"></span>
     </span>
   `;
     return bar;
@@ -74,7 +74,7 @@
     }
 
     const resetStr = formatReset(fiveHourReset);
-    bar.querySelector("#ebb-reset").textContent = resetStr ? "↺ " + resetStr : "";
+    bar.querySelector("#ebb-reset").innerHTML = resetStr ? `<span class="ebb-reset-icon">↺</span> ${resetStr}` : "";
 
     if (p5 !== null) {
       if (p5 >= 90) bar.classList.add("ebb-danger");
@@ -100,6 +100,14 @@
     else anchor.appendChild(bar);
 
     injected = true;
+    document.getElementById('ebb-reset').addEventListener('click', () => {
+      const icon = document.querySelector('.ebb-reset-icon');
+      if (icon) {
+        icon.classList.add('spinning');
+        setTimeout(() => icon.classList.remove('spinning'), 600);
+      }
+      chrome.runtime.sendMessage({ type: "FETCH_USAGE" }).catch(() => { });
+    });
 
     chrome.storage.local.get("claudeUsage", ({ claudeUsage }) => {
       if (claudeUsage) {

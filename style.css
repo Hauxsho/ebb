@@ -8,7 +8,7 @@
   border-radius: 999px;
   font-family: "Anthropic Sans", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.55) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
   white-space: nowrap;
   flex-shrink: 0;
   user-select: none;
@@ -41,14 +41,14 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  opacity: 0.55;
+  opacity: 0.6;
 }
 
 #ebb-bar .ebb-track {
   width: 48px;
   height: 5px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.15);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -57,7 +57,7 @@
   display: block;
   height: 5px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.55);
   transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -73,22 +73,23 @@
   height: 2px;
   border-radius: 50%;
   background: currentColor;
-  opacity: 0.2;
+  opacity: 0.3;
   flex-shrink: 0;
 }
 
 #ebb-bar .ebb-reset {
   font-size: 11px;
   opacity: 0.5;
+  cursor: pointer;
 }
 
 /* warn 70%+ */
 #ebb-bar.ebb-warn {
-  color: #b07c2a;
+  color: #b07c2a !important;
 }
 
 #ebb-bar.ebb-warn .ebb-track-5h {
-  background: rgba(212, 148, 30, 0.2);
+  background: rgba(212, 148, 30, 0.25);
 }
 
 #ebb-bar.ebb-warn .ebb-fill-5h {
@@ -97,11 +98,11 @@
 
 /* danger 90%+ */
 #ebb-bar.ebb-danger {
-  color: #b03a2e;
+  color: #b03a2e !important;
 }
 
 #ebb-bar.ebb-danger .ebb-track-5h {
-  background: rgba(226, 75, 74, 0.2);
+  background: rgba(226, 75, 74, 0.25);
 }
 
 #ebb-bar.ebb-danger .ebb-fill-5h {
@@ -136,4 +137,44 @@
   100% {
     transform: translateX(500%);
   }
+}
+
+/* refresh spin */
+.ebb-reset-icon {
+  display: inline-block;
+}
+
+.ebb-reset-icon.spinning {
+  animation: ebb-spin 0.6s ease-in-out;
+}
+
+@keyframes ebb-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* dark mode */
+html[data-mode="dark"] #ebb-bar {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+html[data-mode="dark"] #ebb-bar.ebb-warn {
+  color: #c9883a !important;
+}
+
+html[data-mode="dark"] #ebb-bar.ebb-danger {
+  color: #c94a3a !important;
+}
+
+html[data-mode="dark"] #ebb-bar .ebb-track {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html[data-mode="dark"] #ebb-bar .ebb-fill {
+  background: rgba(255, 255, 255, 0.85);
 }

@@ -6,6 +6,7 @@
   <p><b>No external servers. No analytics. No Firebase. Everything stays in your browser.</b></p>
 
   <img src="https://img.shields.io/badge/manifest-v3-orange?style=flat-square" />
+  <img src="https://img.shields.io/badge/browsers-chrome%20%7C%20firefox%20%7C%20edge-blue?style=flat-square" />
   <img src="https://img.shields.io/badge/claude.ai-only-cc785c?style=flat-square" />
   <img src="https://img.shields.io/badge/data-local%20only-4a9e6f?style=flat-square" />
 </div>
@@ -15,6 +16,7 @@
 ## What it looks like
 
 ![alt text](<resources/ebb - preview.png>)
+![alt text](<resources/ebb - preview_light.png>)
 
 Sits quietly between the attach button and the model selector. Color-coded:
 
@@ -26,19 +28,22 @@ Sits quietly between the attach button and the model selector. Color-coded:
 
 ---
 
-## Install
-
 1. **Clone or download this repo**
+2. **Install in your browser:**
 
-2. **Open Chrome extensions** `chrome://extensions`
+   - **Chrome / Edge / Brave:**
+     - Open `chrome://extensions`
+     - Enable **Developer mode** (top-right)
+     - Click **Load unpacked** and select the `ebb` folder
+   
+   - **Firefox:**
+     - Open `about:debugging#/runtime/this-firefox`
+     - Click **Load Temporary Add-on...**
+     - Select the `manifest.json` file inside the `ebb` folder
 
-3. **Enable Developer mode** — toggle in the top-right corner
+3. Open **claude.ai** — the bar appears automatically
 
-4. **Load unpacked** → select the `ebb` folder
-
-5. Open **claude.ai** — the bar appears automatically
-
-> **Incognito?** Go to `chrome://extensions` → Ebb → Details → enable *Allow in Incognito*
+> **Incognito?** In Chrome, go to Details → enable *Allow in Incognito*. In Firefox, click the extension icon → Manage Extension → *Allow in Private Windows*.
 
 ---
 
