@@ -52,7 +52,7 @@
     const bar = document.getElementById("ebb-bar");
     if (!bar) return;
 
-    bar.classList.remove("ebb-loading", "ebb-warn", "ebb-danger");
+    bar.classList.remove("ebb-loading");
 
     if (!usageData) {
       bar.classList.add("ebb-loading");
@@ -77,8 +77,12 @@
     bar.querySelector("#ebb-reset").innerHTML = resetStr ? `<span class="ebb-reset-icon">↺</span> ${resetStr}` : "";
 
     if (p5 !== null) {
-      if (p5 >= 90) bar.classList.add("ebb-danger");
-      else if (p5 >= 70) bar.classList.add("ebb-warn");
+      const fill5 = bar.querySelector(".ebb-fill-5h");
+      const track5 = bar.querySelector(".ebb-track-5h");
+      fill5.classList.remove("warn", "danger");
+      track5.classList.remove("warn", "danger");
+      if (p5 >= 90) { fill5.classList.add("danger"); track5.classList.add("danger"); }
+      else if (p5 >= 70) { fill5.classList.add("warn"); track5.classList.add("warn"); }
     }
   }
 
