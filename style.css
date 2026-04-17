@@ -83,13 +83,17 @@
   cursor: pointer;
 }
 
-/* warn 70%+ */
+/* 5h warn/danger */
 #ebb-bar .ebb-fill-5h.warn { background: #d4941e !important; }
 #ebb-bar .ebb-track-5h.warn { background: rgba(212, 148, 30, 0.25) !important; }
-
-/* danger 90%+ */
 #ebb-bar .ebb-fill-5h.danger { background: #e24b4a !important; animation: ebb-pulse 1.6s ease-in-out infinite; }
 #ebb-bar .ebb-track-5h.danger { background: rgba(226, 75, 74, 0.25) !important; }
+
+/* 7d warn/danger */
+#ebb-bar .ebb-fill-7d.warn { background: #d4941e !important; }
+#ebb-bar .ebb-track-7d.warn { background: rgba(212, 148, 30, 0.25) !important; }
+#ebb-bar .ebb-fill-7d.danger { background: #e24b4a !important; animation: ebb-pulse 1.6s ease-in-out infinite; }
+#ebb-bar .ebb-track-7d.danger { background: rgba(226, 75, 74, 0.25) !important; }
 
 @keyframes ebb-pulse {
 

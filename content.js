@@ -84,6 +84,15 @@
       if (p5 >= 90) { fill5.classList.add("danger"); track5.classList.add("danger"); }
       else if (p5 >= 70) { fill5.classList.add("warn"); track5.classList.add("warn"); }
     }
+
+    if (p7 !== null) {
+      const fill7 = bar.querySelector(".ebb-fill-7d");
+      const track7 = bar.querySelector(".ebb-track-7d");
+      fill7.classList.remove("warn", "danger");
+      track7.classList.remove("warn", "danger");
+      if (p7 >= 90) { fill7.classList.add("danger"); track7.classList.add("danger"); }
+      else if (p7 >= 70) { fill7.classList.add("warn"); track7.classList.add("warn"); }
+    }
   }
 
   function inject() {
